@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=firefox
+Exec=bash /path/to/firefox.sh
+Icon=/usr/share/icons/firefox.png
+Terminal=false
+Type=Application
+StartupNotify=false
