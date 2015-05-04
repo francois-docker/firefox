@@ -2,7 +2,7 @@
 FROM debian:jessie
 MAINTAINER François Billant <fbillant@gmail.com>
 
-COPY firefox-36.0.4.tar.bz2 /usr/src/firefox-36.0.4.tar.bz2
+COPY firefox-37.0.2.tar.bz2 /usr/src/firefox-37.0.2.tar.bz2
 
 RUN sed -i.bak 's/jessie main/jessie main contrib non-free/g' /etc/apt/sources.list && \
 
@@ -20,7 +20,7 @@ libxt6 \
 flashplugin-nonfree
 
 RUN cd /usr/src && \
-tar -xvf /usr/src/firefox-36.0.4.tar.bz2 && \
+tar -xvf /usr/src/firefox-37.0.2.tar.bz2 && \
 mv /usr/src/firefox /root
 
 # Autorun x11vnc
