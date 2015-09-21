@@ -20,7 +20,7 @@ libxt6 \
 flashplugin-nonfree
 
 RUN cd /usr/src && \
-tar -xvf /usr/src/firefox-37.0.2.tar.bz2 && \
+tar -xvf /usr/src/firefox-40.0.3.tar.bz2 && \
 mv /usr/src/firefox /root
 
 # Autorun firefox
