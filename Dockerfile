@@ -15,8 +15,8 @@ libxdamage1 \
 libxcomposite1 \
 libasound2-dev \
 libdbus-glib-1-2 \
-libgtk2.0-0 \
 libxt6 \
+libgtk-3-0 \
 flashplugin-nonfree
 
 RUN cd /usr/src && \
