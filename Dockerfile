@@ -17,6 +17,7 @@ libasound2-dev \
 libdbus-glib-1-2 \
 libxt6 \
 libgtk-3-0 \
+libx11-xcb1 \
 flashplugin-nonfree
 
 RUN cd /usr/src && \
