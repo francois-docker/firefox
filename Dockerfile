@@ -1,28 +1,21 @@
-# Base docker image
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER François Billant <fbillant@gmail.com>
 
-COPY firefox-50.0.2.tar.bz2 /usr/src/firefox-50.0.2.tar.bz2
-
-RUN sed -i.bak 's/jessie main/jessie main contrib non-free/g' /etc/apt/sources.list && \
-
-apt-get update && apt-get install -y \
+RUN sed -i.bak 's/stretch main/stretch main contrib non-free/g' /etc/apt/sources.list && \
+apt-get update && \
+apt-get install -y \
+pulseaudio \
+wget \
 bzip2 \
-libfreetype6-dev \
-libfontconfig1 \
-libxrender1 \
-libxdamage1 \
-libxcomposite1 \
-libasound2-dev \
+libgtk-3-0 \
 libdbus-glib-1-2 \
 libxt6 \
-libgtk-3-0 \
-libx11-xcb1 \
-flashplugin-nonfree
+--no-install-recommends \
+&& rm -rf /var/lib/apt/lists/*
 
-RUN cd /usr/src && \
-tar -xvf /usr/src/firefox-50.0.2.tar.bz2 && \
-mv /usr/src/firefox /root
+RUN cd /usr/local/bin &&\ 
+wget --no-check-certificate https://ftp.mozilla.org/pub/firefox/releases/57.0.2/linux-x86_64/en-US/firefox-57.0.2.tar.bz2 && \
+tar -xvf firefox-57.0.2.tar.bz2 && \
+rm firefox-57.0.2.tar.bz2
 
-# Autorun firefox
-CMD ["/root/firefox/firefox"]
+ENTRYPOINT ["/usr/local/bin/firefox/firefox"]
