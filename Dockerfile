@@ -1,7 +1,7 @@
 FROM debian:stretch
 MAINTAINER François Billant <fbillant@gmail.com>
 
-ENV VERSION=57.0.4
+ENV VERSION=58.0
 
 RUN sed -i.bak 's/stretch main/stretch main contrib non-free/g' /etc/apt/sources.list && \
 apt-get update && \
