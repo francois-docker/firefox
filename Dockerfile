@@ -1,6 +1,8 @@
 FROM debian:stretch
 MAINTAINER François Billant <fbillant@gmail.com>
 
+RUN useradd -ms /bin/bash ff
+
 ENV VERSION=58.0.2
 
 RUN sed -i.bak 's/stretch main/stretch main contrib non-free/g' /etc/apt/sources.list && \
@@ -15,9 +17,9 @@ libxt6 \
 --no-install-recommends \
 && rm -rf /var/lib/apt/lists/*
 
-RUN cd /usr/local/bin &&\ 
+RUN cd /home/ff &&\ 
 wget --no-check-certificate https://ftp.mozilla.org/pub/firefox/releases/$VERSION/linux-x86_64/en-US/firefox-$VERSION.tar.bz2 && \
 tar -xvf firefox-$VERSION.tar.bz2 && \
 rm firefox-$VERSION.tar.bz2
 
-ENTRYPOINT ["/usr/local/bin/firefox/firefox"]
+ENTRYPOINT ["/home/ff/firefox/firefox"]
