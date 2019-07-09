@@ -3,7 +3,7 @@ MAINTAINER François Billant <fbillant@gmail.com>
 
 RUN useradd -ms /bin/bash ff
 
-ENV VERSION=67.0.4
+ENV VERSION=68.0
 
 RUN sed -i.bak 's/stretch main/stretch main contrib non-free/g' /etc/apt/sources.list && \
 apt-get update && \
